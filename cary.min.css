@@ -1,0 +1,1008 @@
+.sliding
+{
+    position: fixed;
+
+    -webkit-transition-duration: 0.3s;
+    -moz-transition-duration: 0.3s;
+    -o-transition-duration: 0.3s;
+    transition-duration: 0.3s;
+
+color: blue;
+}
+
+/* General definitions */
+.imgButton, .posIndicator, .mapMenu, .window, .attachedWindow, .button, .ctlBlock, .listView, .listBox, .mfBalloon, .balloon, .pane, .static, .popUpButton, .popUpLabel, .popUpOpener, .popUpMenu, .popUpMenuItem, .browseButton, .checkBox, .checkMark, .details
+{
+    -moz-user-select:	none;
+    -khtml-user-select:	none;
+    user-select:	none;    
+    outline:		transparent;
+}
+
+.details
+{
+    margin:		0px;
+    padding:		5px;
+    border-style:	none;
+    border-width:	0px;
+    font-size:		14px;
+    text-align:		left;
+    overflow-y:         scroll;
+    font-weight:	regular;
+}
+
+.imgButton
+{
+    width:		fit-content;
+    height:		fit-content;
+    margin:		0px;
+    padding:		0px;
+    border-style:	none;
+    border-width:	0px;
+}
+
+.posIndicator
+{
+    font-size:		14px;
+
+    width:		180px;
+
+    border-style:	solid;
+    border-color:	black;
+    border-radius:	4px;
+
+    margin:		5px;
+    padding:		3px;
+    margin-right:	10px;
+
+    background-color:	#ccff99;
+
+    box-shadow:		1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.mapMenu
+{
+    font-size:		12px;
+
+    position:		absolute;
+    width:		fit-content;
+    height:		fit-content;
+
+    border-style:	solid;
+    border-color:	black;
+    border-radius:	4px;
+
+    margin:		0px;
+    padding:		15px;
+    padding-top:	5px;
+    padding-bottom:	10px;
+
+    z-index:		20;
+
+    background-color:	lightcyan;
+    box-shadow:		1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.mapMenuTitle
+{
+    display:		block;
+    text-align:		center;
+    margin:		auto;
+    cursor:		pointer;
+    user-selection:	none;
+    font-size:		18px;
+    line-height:        10px;
+    color:		gray;
+    width:		95%;
+    height:             20px;
+    padding:		6px;
+    padding-bottom:	0px;
+    padding-left:	0px;
+    border-bottom-style:solid;
+    border-bottom-color:gray;
+    border-bottom-width:2px;
+    user-selection:	none;
+}
+
+.checkMarkChecked, .checkMarkUnchecked
+{
+    width:		20px;
+    height:		100%;
+    text-align:		left;
+    font-size:		18px;
+    line-height:	5px;
+    display:		inline;
+    padding:		8px;
+    margin:		0px;
+    float:		left;
+    cursor:		pointer;
+    user-selection:	none;
+}
+
+.checkMarkChecked
+{
+    color:		transparent;
+}
+
+.checkMarkUnchecked
+{
+    color:		transparent;
+}
+
+.mapMenuItem, .mapMenuItemSelected, .mapMenuItem:hover
+{
+    display:		block;
+    text-align:		left;
+    /*float:		left;*/
+    margin:		0px;
+    /*margin-top:         5px;*/
+    cursor:		pointer;
+    user-selection:	none;
+    font-size:		17px;
+    width:		100%;
+    /*width:		fit-content;*/
+    padding:		0px;
+    padding-top:	8px;
+    padding-bottom:	0px;
+}
+
+.mapMenuItem:hover
+{
+    color:		blue;
+}
+
+.mapMenuItemSelected
+{
+    color:		red;
+    text-weight:	bold;
+}
+
+.menuCloseIcon, .windowCloseIcon
+{
+    display:		inline;
+    float:		right;
+    background-color:	transparent;
+    color:		gray;
+    font-size:		20px;
+    cursor:		pointer;
+    user-selection:	none;
+}
+
+.menuCloseIcon
+{
+    line-height:	10px;
+    margin-right:	0px;
+}
+
+.windowCloseIcon
+{
+    line-height:	20px;
+    margin-right:	-8px;
+}
+
+.mapMenuOpenButton
+{
+    width:		fit-content;
+    height:		100%;
+    margin:		0px;
+    float:		right;
+    cursor:		pointer;
+    text-align:		right;
+    font-size:		25px;
+    line-height:	15px;
+}
+
+.mapMenuSeparator
+{
+    width:		100%;
+    height:		1px;
+    border-style:	none;
+    border-top-style:	solid;
+    border-color:	gray;
+    border-top-width:	2px;
+    border-radius:	0px;
+    display:		block;
+    padding:		0px;
+    margin:		0px;
+    margin-top:		10px;
+    margin-bottom:	0px;
+}
+
+.pane
+{
+    font-size:		16px;
+    line-height:	17px;
+    font-weight:	normal;
+    text-align:         center;
+
+    position:		absolute;
+
+    border-style:	solid;
+    border-color:	darkgray;
+    border-radius:	4px;
+    border-width:	1px;
+
+    margin:		0px;
+    padding:		5px;
+
+    z-index:		30;
+    cursor:		pointer;
+
+    color:		black;
+    background-color:	transparent;
+}
+
+.attachedWindow
+{
+}
+
+.window
+{
+    position:		absolute;
+    width:		fit-content;
+    height:		fit-content;
+}
+
+.window, .attachedWindow
+{
+    font-size:		18px;
+    line-height:	17px;
+    font-weight:	normal;
+    text-align:         center;
+
+    border-style:	solid;
+    border-color:	black;
+    border-radius:	4px;
+    border-width:	2px;
+
+    margin:		0px;
+    padding:		15px;
+    padding-top:	5px;
+    padding-bottom:	10px;
+
+    z-index:		20;
+    cursor:		pointer;
+
+    color:		black;
+    background-color:	lightcyan;
+    box-shadow:		1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.windowClient
+{
+    border-top-width:	1px;
+    border-style: 	none;
+    border-top-style:	solid;
+    border-color:	gray;
+
+    left:		0px;
+    top:		30px;
+    bottom:		0px;
+    right:		0px;
+    position:		absolute;
+
+    background-color:	transparent;
+}
+
+.button, .button:hover, .popUpButton, .popUpButton:hover
+{
+    margin:		0px;
+    margin-right:	10px;
+    margin-bottom:	10px;
+
+    border-style:	none;
+    border-width:	0px;
+    border-radius:	3px;
+
+    color:		white;
+
+    text-align:		center;
+    font-size:		14px;
+    line-height:	12px;
+
+    box-shadow:		1px 1px 7px rgba(0, 0, 0, 0.5);
+}
+
+.browseButton
+{
+    margin:		0px;
+    margin-right:	10px;
+    padding:		1px;
+
+    border-style:	none;
+    border-width:	0px;
+
+    color:		black;
+    background-color:	transparent;
+
+    text-align:		center;
+    font-size:		20px;
+    line-height:	18px;
+
+    width:		30px;
+    height:		100%;
+
+    text-align:		center;
+
+    /*float:		right;*/
+}
+
+.popUpButton
+{
+    padding:		0px;
+}
+
+.button, .popUpButton
+{
+    background-color:	blue;
+}
+
+.button:hover, .popUpButton:hover
+{
+    background-color:	rgb(0, 0, 200);
+}
+
+.ctlBlock
+{
+    width:		100%;
+    height:		fit-content;
+}
+
+.tvItem, .tvSelectedItem
+{
+    text-align:		left;
+    font-size:		15px;
+    line-height:	15px;
+    list-style-image:	none;
+    list-style-type:	none;
+    padding:		3px;
+    margin:		0px;
+    color:		black;
+}
+
+.tvItem:hover
+{
+    color:		blue;
+}
+
+.tvItem
+{
+    background-color:	transparent;
+}
+
+.tvSelectedItem
+{
+    background-color:	cyan;
+}
+
+.tvSubItem
+{
+    padding:		0px;
+    margin:		0px;
+}
+
+.listView
+{
+    display:		block;
+
+    background-color:	transparent;
+
+    border-style:	none;
+
+    cursor:		pointer;
+
+    -moz-user-select:	none;
+    -khtml-user-select:	none;
+    user-select:	none;    
+}
+
+.listViewHeader
+{
+    border-style:	none;
+    border-bottom-style:solid;
+    border-bottom-width:1px;
+    border-bottom-color:lightgray;
+
+    /*position:		absolute;
+    left:		0px;
+    right:		22px;*/
+    height:		fit-content;
+    width:		100%;
+
+    display:		block;
+
+    background-color:	transparent;
+
+    margin:		0px;
+    overflow-x:		hidden;
+}
+
+.listViewClient
+{
+    display:		block;
+
+    border-style:	none;
+    /*border-bottom-style:solid;
+    border-bottom-width:1px;
+    border-bottom-color:gray;*/
+
+    position:		absolute;
+    left:		0px;
+    top:		0px;
+
+    background-color:	transparent;
+
+    width:		100%;
+
+    margin:		0px;
+
+    overflow-y: 	auto;
+    overflow-x:		hidden;
+}
+
+.listViewColumnHeader
+{
+    height:		fit-content;
+
+    color:		rgb(150, 150, 150);
+    font-weight:	normal;
+    font-family:	Arial;
+    font-size:		16px;
+
+    margin:		0px;
+    padding:		0px;
+    padding-top:	3px;
+    padding-bottom:	3px;
+
+    border-style:	none;
+    border-color:	transparent;
+    border-width:	0px;
+    border-right-style:	solid;
+    border-right-color:	lightgray;
+    border-right-width:	1px;
+
+    display:		inline;
+    float:		left;
+    padding-left:	5px;
+    text-align:		left;
+}
+
+.listViewColumnHeader:hover
+{
+    font-weight:	bold;
+}
+
+.listViewItem
+{
+    display:		block;
+
+    left:		0px;
+    height:		fit-content;
+    width:		100%;
+
+    border-style:	none;
+    border-width:	0px;
+    border-right-style: solid;
+    border-right-width: 1px;
+    border-right-color: lightgray;
+
+    background-color:	transparent;
+
+    margin:		0px;
+    padding:		0px;
+
+    overflow:		hidden;
+}
+
+.listViewItemColumn, .listViewItemColumn:hover, .listViewItemColumnSelected
+{
+    height:		100%; /*fit-content*/;
+
+    font-weight:	normal;
+    font-family:	Arial;
+    font-size:		16px;
+    /*line-height:	30px;*/
+    text-align:		left;
+
+    margin:		0px;
+    padding:		0px;
+    border-style:	none;
+
+    padding-left:	5px;
+    padding-top:	2px;
+    padding-bottom:	2px;
+
+    border-style:	none;
+    border-color:	transparent;
+    border-width:	0px;
+    border-right-style:	solid;
+    border-right-color:	lightgray;
+    border-right-width:	1px;
+
+    display:		inline;
+    float:		left;
+
+    cursor:		pointer;
+}
+
+.listViewItemColumn
+{
+    color:		black;
+    background-color:	transparent;
+}
+
+.listViewItemColumn:hover
+{
+    color:		blue;
+    background-color:	transparent;
+}
+
+.listViewItemColumnSelected
+{
+    color:		black;
+    background-color:	lightblue;
+}
+
+
+.editBox
+{
+    font-size:		18px;
+
+    color:		black;
+    background-color:	cyan;
+
+    border-radius:	3px;
+    border-style:	solid;
+    border-width:	1px;
+    border-color:	darkgray;
+
+    text-align:		center;
+    outline:		none;
+    display:		block;
+
+    margin:		0px;
+    padding:		2px;
+
+    height:		fit-content;
+}
+
+.listBox
+{
+    border-radius:	3px;
+    border-style:	solid;
+    border-width:	1px;
+    border-color:	darkgray;
+
+    font-size:		18px;
+
+    background-color:	transparent;
+    color:		black;
+    overflow:		auto;
+
+    padding:		2px;
+
+    background-color:	cyan;
+}
+
+.listBoxItem
+{
+    background-color:	transparent;
+    outline-color:	transparent;
+    color:		black;
+    background-color:	cyan;
+}
+
+.listBoxSelectedItem
+{
+    background-color:	blue;
+    outline-color:	transparent;
+    color:		white;
+}
+
+.mfBalloon, .balloon
+{
+    background-color:	#ccff99;
+    color:		black;
+
+    border-color:	black;
+    border-width:	1px;
+    border-style:	solid;
+    border-radius:	3px;
+
+    padding:		5px;
+    margin:		0px;
+
+    position:		absolute;
+    display:		block;
+
+    width:		intrinsic;           /* Safari/WebKit uses a non-standard name */
+    width:		-moz-max-content;    /* Firefox/Gecko */
+    width:		-webkit-max-content; /* Chrome */
+    height:		intrinsic;           /* Safari/WebKit uses a non-standard name */
+    height:		-moz-max-content;    /* Firefox/Gecko */
+    height:		-webkit-max-content; /* Chrome */
+
+    font-size:		15px;
+    z-index:		200;
+}
+
+.mfBalloon
+{
+    padding-top:	30px;
+}
+
+.mfLink
+{
+    color:		blue;
+    font-size:		15px;
+}
+
+.mfButton
+{
+    outline:		none;
+    display:		block;
+
+    line-height:	5px;
+
+    padding:		5px;
+    margin-right:	5px;
+
+    border-radius:	4px;
+    border-style:	none;
+
+    background:		linear-gradient(rgba(220, 220, 220, 1), rgba(70, 70, 70, 1));
+}
+
+.mfCloseIcon
+{
+    float:		right;
+    font-size:		13px;
+    cursor:		pointer;
+    display:		block;
+    top:		5px;
+    right:		5px;
+    position:		absolute;
+}
+
+.mfSettingsButton
+{
+    float:		right;
+    cursor:		pointer;
+    display:		block;
+    top:		5px;
+    right:		20px;
+    position:		absolute;
+}
+
+.static
+{
+    font-size:		14px;
+    line-height:	25px;
+
+    color:		lightgray;
+
+    font-weight:	normal;
+
+    text-align:		left;
+    display:		inline;
+
+    float: 		left;
+
+    border-style:	solid;
+    border-width:	1px;
+    border-radius:	3px;
+    border-color:	gray;
+    padding:		5px;
+    margin:		0px;
+}
+
+.popUpLabel
+{
+    cursor:		pointer;
+
+    margin:		0px;
+    margin-top:		10px;
+    padding:		0px;
+
+    display:		block;
+    left:		0px;
+    top:		10px;
+    right:              0px;
+    text-align:		right;
+    /*width:		fit-content;*/
+    height:		fit-content;
+
+    font-size:		14px;
+    font-family:	Arial;
+    vertical-align:	middle;
+    text-align:		center;
+}
+
+.popUpOpener, .popUpMenu, .popUpMenuItem
+{
+    cursor: pointer;
+}
+
+.popUpOpener
+{
+    float:		right;
+
+    display:		block;
+
+    border-style:	none;
+    border-width:	0px;
+
+    margin:		0px;
+    margin-top:		10px;
+    margin-right:	2px;
+    padding:		0px;
+
+    top:		10px;
+    width:		fit-content;
+    height:		fit-content;
+
+    font-size:		14px;
+    font-family:	Arial;
+
+    vertical-align:	middle;
+    text-align:		center;
+}
+
+.popUpMenu
+{
+    padding:		0;
+    z-index:		1000;
+
+    width:		100%;
+    height:		fit-content;
+    position:		absolute;
+
+    display:		block;
+
+    background-color:	lightcyan;
+    box-shadow:		1px 1px 10px rgba(0, 0, 0, 0.5);
+}
+
+.popUpMenuItem, .popUpMenuItem:hover
+{
+    text-align:		center;
+
+    padding:		0px;
+    padding-top:	4px;
+    padding-bottom:	4px;
+    margin:		0px;
+
+    font-size:		14px;
+    font-family:	Arial;
+}
+
+.popUpMenuItem
+{
+    color:		black;
+}
+
+.popUpMenuItem:hover
+{
+    color:		blue;
+}
+
+.checkBox, .checkMark
+{
+    border-style:	none;
+    border-color:	transparent;
+    border-width:	0px;
+}
+
+.checkBox
+{
+    color:		black;
+    background-color:	transparent;
+
+    font-size:		18px;
+    line-height:	24px;
+    text-align:		left;
+
+    margin:		0px;
+    padding:		0px;
+}
+
+.checkBox:hover
+{
+    color:		blue;
+}
+
+.checkMark
+{
+    font-size:		24px;
+    line-height:	24px;
+
+    float:		left;
+
+    margin:		0px;
+    margin-right:	10px;
+}
+
+.tag
+{
+    background-color:	white;
+    border-color:	black;
+    border-style:	solid;
+    border-width:	1px;
+    border-radius:	3px;
+    padding:		2px;
+    width:		80px;
+}
+
+.calendar
+{
+    background-color: rgb(77, 77, 77);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: black;
+    width: 215px;
+    height: 170px;
+    padding: 0px;
+    cursor: pointer;
+    z-index: 60000;
+}
+
+.monthSelector
+{
+    background: linear-gradient(rgb(91, 91, 91), rgb(40, 40, 40));
+    color: white;
+    font-weight: bold;
+    font-size: 13px;
+    line-height: 20px;
+    border-style: none;
+    border-radius: 3px;
+    height: 22px;
+    margin: 1px;
+    padding: 1px;
+}
+
+.monthName
+{
+    margin: auto;
+    display: inline;
+    text-align: center;
+    width: 135px;
+    left: 30px;
+    top: 2px;
+    position: absolute;
+    background-color: transparent;
+}
+
+.goToNextMonth, .goToPrevMonth, .closeButton
+{
+    margin: 2px;
+    height: 18px;
+    width: 25px;
+    font-weight: bold;
+    font-size: 10px;
+    line-height: 10px;
+    text-align: center;
+    padding: 0px;
+    border-style: none;
+    border-color: black;
+    border-width: 1px;
+    border-radius: 2px;
+    background-color: transparent;
+    color: white;
+    outline: none;
+}
+
+.goToNextMonth:hover, .goToPrevMonth:hover, .closeButton:hover
+{
+    background: linear-gradient(rgb(150, 150, 150), rgb(80, 80, 80));
+}
+
+.goToPrevMonth
+{
+    display: inline;
+    float: left;
+}
+
+.goToNextMonth, .closeButton
+{
+    display: inline-block;
+    float: right;
+}
+
+.closeButton
+{
+    width: 15px;
+}
+
+.weekHeader
+{
+    background-color: rgb(87, 87, 87);
+    border-color: rgb(40, 40, 40);
+    border-style: solid;
+    border-width: 1px;
+    color: white;
+    padding: 1px;
+    padding-top: 0px;
+    line-height: 15px;
+    margin-bottom: 0px;
+}
+
+.dayOfWeek
+{
+    display: inline-block;
+    text-align: center;
+    font-weight: normal;
+    font-size: 12px;
+    line-height: 12px;
+    margin: 0px;
+    margin-left: 2px;
+    margin-right: 1px;
+    padding: 2px;
+    position: relative;
+    width: 23px;
+    border-style: none;
+    border-width: 0px;
+}
+
+.week
+{
+    background-color: transparent;
+    border-style: none;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: black;
+    left: 0px;
+    right: 0px;
+    height: 20px;
+    margin: 1px;
+    margin-bottom: 0px;
+    margin-top: 0px;
+    padding: 1px;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+
+.day, .invalidDay, .selectedDay, .disabledDay
+{
+    font-size: 12px;
+    line-height: 16px;
+    text-align: center;
+    background-color: transparent;
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 4px;
+    border-color: transparent;
+    width: 27px;
+    height: 16px;
+    margin: 1px;
+    margin-right: 0px;
+    margin-left: 1px;
+    display: inline-block;
+}
+
+.day
+{
+    color: white;
+}
+
+.disabledDay
+{
+    color: red;
+}
+
+.invalidDay
+{
+    color: gray;
+}
+
+.selectedDay
+{
+    background-color: darkblue;
+    color: white;
+}
+
+.day:hover
+{
+    background-color: gray;
+}
+

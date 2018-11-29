@@ -1,0 +1,3 @@
+<?php
+
+$sessionTimeout = 600;

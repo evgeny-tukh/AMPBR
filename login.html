@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html>
+    <head>
+        <title>Санкт-Петербургский порт</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <style>
+            .bg
+            {
+                /*position: absolute;
+                top: 0px;
+                right: 0px;*/
+                margin: auto;
+                padding: 0px;
+            }
+
+            button, .loginBox
+            {
+                -moz-user-select:	none;
+                -khtml-user-select:	none;
+                user-select:		none;    
+                outline:		transparent;
+            }
+
+            body
+            {
+                background-color: rgba(150, 150, 200, 1);
+                background-image: url(res/sat2.jpg);
+                background-position-x: center;
+                background-position-y: top;
+                background-repeat: no-repeat;
+            }
+
+            button
+            {
+                background-color: blue;
+                color: white;
+            }
+            
+            button:hover
+            {
+                background-color: cyan;
+                color: black;
+            }
+
+            .loginBox
+            {
+                position: absolute;
+                background-color: rgba(100, 100, 150, 1);
+                opacity: 0.7;
+                width: 400px;
+                height: 210px;
+                left: 35%;
+                top: 100px;
+                text-align: center;
+                border-radius: 10px;
+            }
+            
+            .logo
+            {
+
+            }
+
+            .bigText
+            {
+                font-family: Courier new;
+                font-size: 22px;
+                font-weight: bold;
+                color: white;
+                padding: 10px;
+            }
+            
+            .textBlock
+            {
+                display: block;
+                width: 90%;
+                height: 40px;
+                text-align: left;
+                padding-left: 20px;
+                color: white;
+            }
+            
+            .fplink
+            {
+                color: white;
+                left: 80px;
+                bottom: 10px;
+                position: absolute;
+            }
+            
+            .textEdit
+            {
+                border-style: none;
+                border-radius: 3px;
+                width: 200px;
+                height: 10px;
+                color: black;
+                font-weight: bold;
+                margin-right: 10px;
+                float: right;
+                padding: 5px;
+            }
+            
+            .tickBox
+            {
+                border-style: none;
+                margin: 0px;
+                float: right;
+                height: 25px;
+                margin-right: 210px;
+            }
+            
+            .submitButton
+            {
+                background: linear-gradient(rgba(220, 220, 220, 1), rgba(70, 70, 70, 1));
+                width: 90px;
+                height: 25px;
+                border-style: none;
+                border-radius: 4px;
+                color: rgba(255, 255, 255, 1);
+                float: right;
+                margin-right: 10px;
+            }
+            
+            .submitButton:hover
+            {
+                background: linear-gradient(rgba(110, 110, 110, 1), rgba(35, 35, 35, 1));
+            }
+        </style>
+    </head>
+    <body onload="initLogin ();" onresize="adjustLoginBoxPos ();">
+        <script>
+            function initLogin ()
+            {
+                if ('localStorage' in window && window.localStorage && window.localStorage.getItem ('rm'))
+                {
+                    var userName = document.getElementById ('un');
+                    var password = document.getElementById ('pw');
+                    var rememberMe = document.getElementById ('r');
+                    
+                    userName.value = window.localStorage.getItem ('un');
+                    password.value = window.localStorage.getItem ('pw');
+                    
+                    rememberMe.checked = true;
+                }
+            }
+            
+            function onSubmit ()
+            {
+                var rememberMe = document.getElementById ('r');
+                
+                if (rememberMe.checked && 'localStorage' in window && window.localStorage)
+                {
+                    var userName = document.getElementById ('un');
+                    var password = document.getElementById ('pw');
+                    
+                    window.localStorage.setItem ('rm', true);
+                    window.localStorage.setItem ('un', userName.value);
+                    window.localStorage.setItem ('pw', password.value);
+                }
+                else
+                {
+                    window.localStorage.setItem ('rm', false);
+                }
+            }
+        </script>
+        <!-- <img class="logo" src="res/logo.gif">
+        <img class="bg" src="res/sat2.jpg"> -->
+        <div id="loginBox" class="loginBox">
+            <form action="login.php" method="post" enctype="multipart/form-data" name="login">
+                <span class="bigText textBlock">Авторизуйтесь, пожалуйста!</span>
+                <div class="textBlock">Имя пользователя
+                    <input type="text" id="un" name="un" class="textEdit" autocomplete="on" autofocus/>
+                </div>
+                <div class="textBlock">Пароль
+                    <input type="password" id="pw" name="pw" class="textEdit" />
+                </div>
+                <div class="textBlock">Запомнить меня
+                    <input type="checkbox" id="r" name="r" class="tickBox" value="on">
+                </div>
+                <div class="textBlock">
+                    <input type="submit" class="submitButton" value="Войти" onclick="onSubmit ();">
+                </div>
+                <a href="" class="fplink">Забыли пароль?</a>
+            </form>
+        </div>
+    </body>
+</html>
