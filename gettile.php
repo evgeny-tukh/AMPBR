@@ -1,10 +1,11 @@
 <?php
 
-    $x = $_REQUEST ['x'];
-    $y = $_REQUEST ['y'];
-    $z = $_REQUEST ['z'];
-    $l = $_REQUEST ['l'];
-
+    $x             = $_REQUEST ['x'];
+    $y             = $_REQUEST ['y'];
+    $z             = $_REQUEST ['z'];
+    $l             = $_REQUEST ['l'];
+    $smooth        = array_key_exists ('s', $_REQUEST) ? intval ($_REQUEST ['s']) : 0;
+    $usePrefetch   = array_key_exists ('p', $_REQUEST) ? intval ($_REQUEST ['p']) : 0;
     $grayScaleOnly = array_key_exists ('g', $_REQUEST) ? intval ($_REQUEST ['g']) : 0;
 
     error_reporting (0);
@@ -13,12 +14,18 @@
 
     $prefetchedPath = "prefetch/$sceneFolder/$z/$x/$y.png";
 
-    if (file_exists ($prefetchedPath))
+    if ($usePrefetch && file_exists ($prefetchedPath))
     {
         header ('Content-Type: image/png');
-//echo "$prefetchedPath</br>";
+        
         $img = imagecreatefrompng ($prefetchedPath);
 
+        if ($smooth)
+        {
+            imagefilter ($img, IMG_FILTER_SMOOTH, 1);
+            imagefilter ($img, IMG_FILTER_PIXELATE, 2);
+        }
+        
         imagepng ($img);
         imagedestroy ($img);
     }
@@ -81,7 +88,13 @@
         }
         
         imagecolortransparent ($img, $bg);
-
+        
+        if ($smooth)
+        {
+            imagefilter ($img, IMG_FILTER_SMOOTH, 1);
+            imagefilter ($img, IMG_FILTER_PIXELATE, 2);
+        }
+        
         header ('Content-Type: image/png');
 
         imagepng ($img);

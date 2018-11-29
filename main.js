@@ -3,7 +3,7 @@ var settings    = { scanexBorder: { west: areaBox.west, east: areaBox.east, nort
                                     limitedWest: areaBox.l_west, limitedEast: areaBox.l_east, limitedNorth: areaBox.l_north, limitedSouth: areaBox.l_south,
                                     limitedAreaText: areaBox.l_text, limitedAreaEnbabled: areaBox.l_enabled, limitedZoom: areaBox.l_zoom, } };
 var layoutFlags = { LEFT_PANE: 1, BOTTOM_PANE: 2 };
-var globals     = { layout: layoutFlags.BOTTOM_PANE | layoutFlags.LEFT_PANE, minZoom: 7, maxZoom: 11 };
+var globals     = { layout: layoutFlags.BOTTOM_PANE | layoutFlags.LEFT_PANE, minZoom: 7, maxZoom: 11, smoothTiles: true };
 
 function init ()
 {

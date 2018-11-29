@@ -37,30 +37,32 @@ LeftPane.prototype.onInitialize = function ()
 {
     SidePane.prototype.onInitialize.apply (this, arguments);
 
-    var now        = Cary.tools.getTimestamp ();
-    var date       = now - 24 * 3600000 * 2 - 60000;
-    var columns    = [{ title: 'Parameter', width: 100 }, { title: 'Value', width: 150 }];
-    var dateStyle  = { padding: 5, 'padding-bottom': 2, margin: 0, 'margin-right': 10, 'line-height': 22, 'text-align': 'left', width: 280, 'font-size': '16px', 'line-height': '20px' };
-    var dateBlock  = new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'Look at date' }, dateStyle);
-    var metaBlock  = new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'Planned data' }, dateStyle);
-    var aquaBlock  = new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'MODIS Aqua' }, dateStyle);
-    var areaBlock  = settings.scanexBorder.limitedAreaEnbabled ? new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: settings.scanexBorder.limitedAreaText }, dateStyle) : null;
+    var now         = Cary.tools.getTimestamp ();
+    var date        = now - 24 * 3600000 * 2 - 60000;
+    var columns     = [{ title: 'Parameter', width: 100 }, { title: 'Value', width: 150 }];
+    var dateStyle   = { padding: 5, 'padding-bottom': 2, margin: 0, 'margin-right': 10, 'line-height': 22, 'text-align': 'left', width: 280, 'font-size': '16px', 'line-height': '20px' };
+    var dateBlock   = new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'Look at date' }, dateStyle);
+    var metaBlock   = new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'Planned data' }, dateStyle);
+    var aquaBlock   = new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'MODIS Aqua' }, dateStyle);
+    var smoothBlock = settings.scanexBorder.limitedAreaEnbabled ? new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'Smooth tiles' }, dateStyle) : null;
+    var areaBlock   = settings.scanexBorder.limitedAreaEnbabled ? new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: settings.scanexBorder.limitedAreaText }, dateStyle) : null;
     //var queryBlock = new Cary.ui.ControlBlock ({ parent: this.client, visible: true }, { padding: 10 });
-    var shiftToFut = new Cary.ui.Button ({ text: Cary.symbols.toRight2/*'>>'*/, parent: dateBlock.htmlObject, visible: true, onClick: shiftToFuture },
-                                         { width: 20, 'padding-left': 1, 'padding-right': 1, height: 17, float: 'right', 'margin-right': 2, 'line-height': 10 });
-    var dateCtl    = new Cary.ui.EditBox ({ parent: dateBlock.htmlObject, visible: true, onClick: selectDate }, 
-                                          { 'font-size': '15px', float: 'right', height: 18, width: 120, 'margin-right': 2 });
-    var shiftToPst = new Cary.ui.Button ({ text: Cary.symbols.toLeft2/*'<<'*/, parent: dateBlock.htmlObject, visible: true, onClick: shiftToPast },
-                                         { width: 20, 'padding-left': 1, 'padding-right': 1, height: 17, float: 'right', 'margin-right': 2, 'line-height': 10 });
-    var showMeta   = new Cary.ui.CheckBox ({ parent: metaBlock.htmlObject, visible: true, onChange: showHideMetaData }, { float: 'right', 'margin-right': '138px' });
-    var showAqua   = new Cary.ui.CheckBox ({ parent: aquaBlock.htmlObject, visible: true, onChange: showHideAquaData }, { float: 'right', 'margin-right': '138px' });
-    var limitArea  = settings.scanexBorder.limitedAreaEnbabled ? new Cary.ui.CheckBox ({ parent: areaBlock.htmlObject, visible: true, onChange: switchArea, checked: true }, { float: 'right', 'margin-right': '138px' }) : null;
+    var shiftToFut  = new Cary.ui.Button ({ text: Cary.symbols.toRight2/*'>>'*/, parent: dateBlock.htmlObject, visible: true, onClick: shiftToFuture },
+                                          { width: 20, 'padding-left': 1, 'padding-right': 1, height: 17, float: 'right', 'margin-right': 2, 'line-height': 10 });
+    var dateCtl     = new Cary.ui.EditBox ({ parent: dateBlock.htmlObject, visible: true, onClick: selectDate }, 
+                                           { 'font-size': '15px', float: 'right', height: 18, width: 120, 'margin-right': 2 });
+    var shiftToPst  = new Cary.ui.Button ({ text: Cary.symbols.toLeft2/*'<<'*/, parent: dateBlock.htmlObject, visible: true, onClick: shiftToPast },
+                                          { width: 20, 'padding-left': 1, 'padding-right': 1, height: 17, float: 'right', 'margin-right': 2, 'line-height': 10 });
+    var showMeta    = new Cary.ui.CheckBox ({ parent: metaBlock.htmlObject, visible: true, onChange: showHideMetaData }, { float: 'right', 'margin-right': '138px' });
+    var showAqua    = new Cary.ui.CheckBox ({ parent: aquaBlock.htmlObject, visible: true, onChange: showHideAquaData }, { float: 'right', 'margin-right': '138px' });
+    var limitArea   = settings.scanexBorder.limitedAreaEnbabled ? new Cary.ui.CheckBox ({ parent: areaBlock.htmlObject, visible: true, onChange: switchArea, checked: true }, { float: 'right', 'margin-right': '138px' }) : null;
+    var smoothTiles = new Cary.ui.CheckBox ({ parent: smoothBlock.htmlObject, visible: true, onChange: switchSmoothMode, checked: globals.smoothTiles }, { float: 'right', 'margin-right': '138px' });
     
     this.metaData = [];
     this.aquaData = [];
     
     this.dataList = new Cary.ui.ListView ({ parent: this.client, columns: columns, visible: false },
-                                          { border: 'solid', 'border-width': '1px', position: 'absolute', right: 5, top: 120, left: 5, bottom: 5, fontSize: 10, overflowY: 'scroll' });
+                                          { border: 'solid', 'border-width': '1px', position: 'absolute', right: 5, top: 150, left: 5, bottom: 5, fontSize: 10, overflowY: 'scroll' });
                         
     dateCtl.setValue (Cary.tools.formatDate (date));
     
@@ -75,6 +77,13 @@ LeftPane.prototype.onInitialize = function ()
     {
         //showScanExData (show, 'aquaData');
         showAllScanExOverlays (show, 'aqua');
+    }
+    
+    function switchSmoothMode (smoothMode)
+    {
+        globals.smoothTiles = smoothMode;
+
+        globals.map.map.setZoom (0);
     }
     
     function switchArea (limitArea)
@@ -93,9 +102,10 @@ LeftPane.prototype.onInitialize = function ()
     
     function shiftToFuture ()
     {
-        var newDate = date + 24 * 3600000;
+        var dayLength = 24 * 3600000;
+        var newDate   = date + dayLength;
         
-        if (newDate <= now)
+        if (newDate <= now + dayLength * 20)
             date = newDate;
         
         dateCtl.setValue (Cary.tools.formatDate (date));

@@ -67,7 +67,7 @@ function createScanExTileUrlFunction (catalogID, forceGrayScale)
                var result;
                
                result = 'http://jecat.ru/AMPBR/gettile.php?x=' + X.toString () + '&y=' + coord.y.toString () + '&z=' + zoom.toString () + '&l=' + catalogID +
-                        '&g=' + forceGrayScale.toString ();
+                        '&g=' + forceGrayScale.toString () + '&s=' + (globals.smoothTiles ? '1' : '0');
                
                //return 'http://geomixer.scanex.ru/TileSender.ashx?ModeKey=tile&ftc=osm&x=' + X.toString () + '&y=' + coord.y.toString () + '&z=' + zoom.toString () + 
                //       '&srs=3857&LayerName=' + catalogID + '&key=mm6UnkKa4BVxRa6YxDVxyYch5SeuT0VlGi82zJr9MhZ4XUGSOORqzgozbX5uByvl61AInDA4N0znBdLMEBmwF1ANUlUwG0XNyARpq0K9Wis%3D';
