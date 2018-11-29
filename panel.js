@@ -81,9 +81,21 @@ LeftPane.prototype.onInitialize = function ()
     
     function switchSmoothMode (smoothMode)
     {
+        var map    = globals.map.map;
+        var zoom   = map.getZoom ();
+        var bounds = map.getBounds ();
+        
         globals.smoothTiles = smoothMode;
 
-        globals.map.map.setZoom (0);
+        map.setZoom (0);
+        
+        google.maps.event.addListenerOnce (map, 'tilesloaded', onTilesRefreshed);
+        
+        function onTilesRefreshed ()
+        {
+            map.setZoom (zoom);
+            map.panToBounds (bounds);
+        }
     }
     
     function switchArea (limitArea)
