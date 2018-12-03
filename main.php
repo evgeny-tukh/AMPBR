@@ -133,7 +133,7 @@
                     <script src="../cary/ui/dlg/msg_box.js"></script>
                     <script src="../cary/ui/dlg/browser_wnd.js "></script>
                 
-                <script src="custom_maps.js"></script>
+                <script src="custom_maps.js?a=1"></script>
                 <script src="border.js"></script>
                 <script src="main.js"></script>
                 <script src="side_pane.js"></script>

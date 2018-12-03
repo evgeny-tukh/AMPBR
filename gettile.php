@@ -31,7 +31,7 @@
     }
     else
     {
-        $url = "http://geomixer.scanex.ru/TileSender.ashx?ModeKey=tile&ftc=osm&x=$x&y=$y&z=$z&srs=3857&LayerName=$l&key=mm6UnkKa4BVxRa6YxDVxyYch5SeuT0VlGi82zJr9MhZ4XUGSOORqzgozbX5uByvl61AInDA4N0znBdLMEBmwF0d%2BsFJjK4smGIU8Xn5Dlfw%3D";
+        $url = "http://geomixer.scanex.ru/TileSender.ashx?ModeKey=tile&apikey=4WYFYJC5X0&ftc=osm&x=$x&y=$y&z=$z&srs=3857&LayerName=$l&key=mm6UnkKa4BVxRa6YxDVxyYch5SeuT0VlGi82zJr9MhZ4XUGSOORqzgozbX5uByvl61AInDA4N0znBdLMEBmwF0d%2BsFJjK4smGIU8Xn5Dlfw%3D";
         $img = imagecreatefromjpeg ($url);
 
         if ($img)

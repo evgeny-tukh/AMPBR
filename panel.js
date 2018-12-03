@@ -38,13 +38,13 @@ LeftPane.prototype.onInitialize = function ()
     SidePane.prototype.onInitialize.apply (this, arguments);
 
     var now         = Cary.tools.getTimestamp ();
-    var date        = now - 24 * 3600000 * 2 - 60000;
+    var date        = now - /*24 * 3600000 * 2*/ - 60000;
     var columns     = [{ title: 'Parameter', width: 100 }, { title: 'Value', width: 150 }];
     var dateStyle   = { padding: 5, 'padding-bottom': 2, margin: 0, 'margin-right': 10, 'line-height': 22, 'text-align': 'left', width: 280, 'font-size': '16px', 'line-height': '20px' };
     var dateBlock   = new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'Look at date' }, dateStyle);
     var metaBlock   = new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'Planned data' }, dateStyle);
     var aquaBlock   = new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'MODIS Aqua' }, dateStyle);
-    var smoothBlock = settings.scanexBorder.limitedAreaEnbabled ? new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'Smooth tiles' }, dateStyle) : null;
+    var smoothBlock = new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: 'Smooth tiles' }, dateStyle);
     var areaBlock   = settings.scanexBorder.limitedAreaEnbabled ? new Cary.ui.ControlBlock ({ parent: this.client, visible: true, text: settings.scanexBorder.limitedAreaText }, dateStyle) : null;
     //var queryBlock = new Cary.ui.ControlBlock ({ parent: this.client, visible: true }, { padding: 10 });
     var shiftToFut  = new Cary.ui.Button ({ text: Cary.symbols.toRight2/*'>>'*/, parent: dateBlock.htmlObject, visible: true, onClick: shiftToFuture },
