@@ -97,6 +97,7 @@
                     <script src="../cary/gm/map_locker.js"></script>
                     <script src="../cary/gm/pos_indicator.js"></script>
                     <script src="../cary/gm/img_button.js"></script>
+                    <script src="../cary/gm/gm_slider.js"></script>
                     <script src="../cary/gm/brg_rgn_tag.js"></script>
                     <script src="../cary/gm/gm_panel.js"></script>
                     <script src="../cary/gm/map_menu.js"></script>
@@ -126,6 +127,7 @@
                     <script src="../cary/ui/generic/details.js"></script>
                     <script src="../cary/ui/generic/calendar.js"></script>
                     <script src="../cary/ui/generic/datehourbox2.js"></script>
+                    <script src="../cary/ui/generic/slider.js"></script>
                     <script src="../cary/ui/dlg/coord_edit.js"></script>
                     <script src="../cary/ui/dlg/pos_edit.js"></script>
                     <script src="../cary/ui/dlg/usr_pln_props.js"></script>
@@ -141,6 +143,7 @@
                 <script src="pos_indicator.js"></script>
 
                 <link rel="stylesheet" href="cary.min.css"/>
+                <!--<link rel="stylesheet" href="../cary/slider.css"/>-->
             </head>
             <body onload="init ();" onresize="onResize ();">
                 <div id="mapDiv" class="map">

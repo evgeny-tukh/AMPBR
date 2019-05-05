@@ -11,6 +11,7 @@ function init ()
     var mapDiv  = document.getElementById ('mapDiv');
     var zoomInButton;
     var zoomOutButton;
+    var transpCtl;
     var lftPaneButton;
     var btmPaneButton;
     var logoutButton;
@@ -46,6 +47,7 @@ function init ()
     
     zoomInButton  = map.createImgButton (google.maps.ControlPosition.RIGHT_TOP, 'res/zoom-in-20.png', { onClick: function () { map.zoomIn (); } });
     zoomOutButton = map.createImgButton (google.maps.ControlPosition.RIGHT_TOP, 'res/zoom-out-20.png', { onClick: function () { map.zoomOut (); } });
+    transpCtl     = map.createSlider (google.maps.ControlPosition.RIGHT_TOP, { min: 0.1, max: 1.0, step: 0.1, vertical: true });
     lftPaneButton = map.createImgButton (google.maps.ControlPosition.LEFT_CENTER, 'res/rgt_arr.png', { onClick: showLeftPane });
     btmPaneButton = map.createImgButton (google.maps.ControlPosition.BOTTOM_CENTER, 'res/up_arr.png', { onClick: showBottomPane });
     logoutButton  = map.createImgButton (google.maps.ControlPosition.TOP_RIGHT, 'res/exit26.png', { onClick: logout });
@@ -65,6 +67,7 @@ function init ()
     zoomInButton.show ();
     zoomOutButton.show ();
     logoutButton.show ();
+    transpCtl.show ();
 
     zoomOutButton.enable (globals.minZoom < 7);
     zoomInButton.enable (globals.maxZoom > 7);
