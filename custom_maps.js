@@ -125,6 +125,33 @@ function showAllScanExOverlays (show, ovlType)
                          });
 }
 
+function setScanExOverlaysOpacity (opacity)
+{
+    var mapObject = Cary.checkMap (globals.map);
+    var layers    = [];
+
+    globals.ovlOpacity = opacity;
+
+    for (i = mapObject.overlayMapTypes.getLength () - 1; i >= 0; -- i)
+    {
+        var mapType = mapObject.overlayMapTypes.getAt (i);
+
+        if ('isScanEx' in mapType && mapType.isScanEx)
+        {
+            layers.push (mapType);
+
+            mapObject.overlayMapTypes.removeAt (i);
+        }
+    }
+
+    layers.forEach (function (layer)
+                    {
+                        layer.opacity = opacity;
+                        
+                        showScanExOverlay (layer.catalogID, true, layer.ovlType);
+                    });
+}
+
 function showScanExOverlay (catalogID, show, ovlType)
 {
     var mapObject = Cary.checkMap (globals.map);
@@ -134,12 +161,17 @@ function showScanExOverlay (catalogID, show, ovlType)
         show = true;
 
     if (show && !(catalogID in scanExOverlays [ovlType]))
-        scanExOverlays [ovlType][catalogID] = new Cary.maps.overlayMaps.CustomOverlayMapType (catalogID, createScanExTileUrlFunction (catalogID, ovlType === 'sentinel' ? 1 : 0));
+        scanExOverlays [ovlType][catalogID] = new Cary.maps.overlayMaps.CustomOverlayMapType (catalogID, createScanExTileUrlFunction (catalogID, ovlType === 'sentinel' ? 1 : 0), null, globals.ovlOpacity);
 
     layer = scanExOverlays [ovlType][catalogID];
 
+    layer.catalogID = catalogID;
+    layer.ovlType   = ovlType;
+
     if (show)
     {
+        layer.isScanEx = true;
+
         mapObject.overlayMapTypes.insertAt (0, layer);
         
         if (catalogID in overlayBorders [ovlType])

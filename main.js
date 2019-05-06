@@ -3,7 +3,7 @@ var settings    = { scanexBorder: { west: areaBox.west, east: areaBox.east, nort
                                     limitedWest: areaBox.l_west, limitedEast: areaBox.l_east, limitedNorth: areaBox.l_north, limitedSouth: areaBox.l_south,
                                     limitedAreaText: areaBox.l_text, limitedAreaEnbabled: areaBox.l_enabled, limitedZoom: areaBox.l_zoom, } };
 var layoutFlags = { LEFT_PANE: 1, BOTTOM_PANE: 2 };
-var globals     = { layout: layoutFlags.BOTTOM_PANE | layoutFlags.LEFT_PANE, minZoom: 7, maxZoom: 11, smoothTiles: true };
+var globals     = { layout: layoutFlags.BOTTOM_PANE | layoutFlags.LEFT_PANE, minZoom: 7, maxZoom: 11, smoothTiles: true, ovlOpacity: 1.0 };
 
 function init ()
 {
@@ -47,12 +47,14 @@ function init ()
     
     zoomInButton  = map.createImgButton (google.maps.ControlPosition.RIGHT_TOP, 'res/zoom-in-20.png', { onClick: function () { map.zoomIn (); } });
     zoomOutButton = map.createImgButton (google.maps.ControlPosition.RIGHT_TOP, 'res/zoom-out-20.png', { onClick: function () { map.zoomOut (); } });
-    transpCtl     = map.createSlider (google.maps.ControlPosition.RIGHT_TOP, { min: 0.1, max: 1.0, step: 0.1, vertical: true });
+    transpCtl     = map.createSlider (google.maps.ControlPosition.RIGHT_TOP, { min: 0.1, max: 1.0, step: 0.1, value: globals.ovlOpacity, vertical: true, onChange: onOpacityChanged });
     lftPaneButton = map.createImgButton (google.maps.ControlPosition.LEFT_CENTER, 'res/rgt_arr.png', { onClick: showLeftPane });
     btmPaneButton = map.createImgButton (google.maps.ControlPosition.BOTTOM_CENTER, 'res/up_arr.png', { onClick: showBottomPane });
     logoutButton  = map.createImgButton (google.maps.ControlPosition.TOP_RIGHT, 'res/exit26.png', { onClick: logout });
     posInd        = map.createPosIndicator (google.maps.ControlPosition.TOP_CENTER);
 
+    transpCtl.slider.value = "1.0";
+    
     map.addEventListener ('zoom_changed', onZoomChanged);
     map.addEventListener ('mousemove', onMouseMove);
     map.addEventListener ('mouseover', function () { posInd.show (true); });
@@ -71,7 +73,12 @@ function init ()
 
     zoomOutButton.enable (globals.minZoom < 7);
     zoomInButton.enable (globals.maxZoom > 7);
-        
+
+    function onOpacityChanged ()
+    {
+        setScanExOverlaysOpacity (parseFloat (transpCtl.slider.value));
+    }
+
     function onZoomChanged ()
     {
         var curZoom = map.map.getZoom ();
